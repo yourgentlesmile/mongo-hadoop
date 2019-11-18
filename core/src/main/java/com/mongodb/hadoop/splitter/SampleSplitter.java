@@ -55,6 +55,11 @@ public class SampleSplitter extends MongoCollectionSplitter {
                 + result.getErrorMessage());
         }
         int count = result.getInt("count");
+        //If query an empty document,avgObjSize will not exist in CommandResult.
+        if(count == 0) {
+            InputSplit split = createSplitFromBounds(null, null);
+            return Collections.singletonList(split);
+        }
         int avgObjSize = result.getInt("avgObjSize");
         int numDocsPerSplit = (int) Math.floor(
           splitSizeMB * 1024 * 1024 / avgObjSize);

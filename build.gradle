@@ -71,9 +71,9 @@ configure(subprojects) {
     apply plugin: 'com.bmuschko.nexus'
 
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
         mavenCentral()
-        mavenLocal()
-        maven { url "https://repository.cloudera.com/artifactory/cloudera-repos/" }
     }
 
 
@@ -265,16 +265,16 @@ task apidocs {
         }
     }
     // Generate an index.html.
-    new File("docs/index.html").withWriter { writer ->
-        writer.write("<html><head><title>MongoDB Hadoop Connector " +
-                "Modules</title></head><body><h3>MongoDB Hadoop Connector " +
-                "Modules</h3><ul>")
-        noExamples.each { proj ->
-            writer.append("<li><a href='" + proj.getName() + "/index.html' " +
-                    "rel='nofollow'>" + proj.getName() + "</li>")
-        }
-        writer.append("</ul></body></html>")
-    }
+//    new File("docs/index.html").withWriter { writer ->
+//        writer.write("<html><head><title>MongoDB Hadoop Connector " +
+//                "Modules</title></head><body><h3>MongoDB Hadoop Connector " +
+//                "Modules</h3><ul>")
+//        noExamples.each { proj ->
+//            writer.append("<li><a href='" + proj.getName() + "/index.html' " +
+//                    "rel='nofollow'>" + proj.getName() + "</li>")
+//        }
+//        writer.append("</ul></body></html>")
+//    }
 }
 
 idea {
