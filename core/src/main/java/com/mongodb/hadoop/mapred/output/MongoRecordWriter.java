@@ -34,7 +34,7 @@ public class MongoRecordWriter<K, V>
     public MongoRecordWriter(final JobConf conf) {
         super(
           MongoConfigUtil.getOutputCollection(conf),
-          CompatUtils.getTaskAttemptContext(conf, conf.get("mapred.task.id")));
+          CompatUtils.getTaskAttemptContext(conf, conf.get("mapreduce.task.attempt.id")));
     }
 
     @Override

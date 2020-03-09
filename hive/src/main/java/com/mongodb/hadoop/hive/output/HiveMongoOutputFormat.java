@@ -77,10 +77,10 @@ public class HiveMongoOutputFormat implements HiveOutputFormat<BSONWritable, BSO
             super(
               MongoConfigUtil.getOutputCollection(conf),
               CompatUtils.getTaskAttemptContext(
-                conf, conf.get("mapred.task.id")));
+                conf, conf.get("mapreduce.task.attempt.id")));
             context =
               CompatUtils.getTaskAttemptContext(
-                conf, conf.get("mapred.task.id"));
+                conf, conf.get("mapreduce.task.attempt.id"));
             committer = new MongoOutputCommitter();
         }
 
